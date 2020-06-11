@@ -32,7 +32,7 @@ Skeleton.pacman();
 Skeleton.ghost();
 ```
 
-#Once your package is working and ready to be published
+# Once your package is working and ready to be published
 
 - Create a new directory somewhere on your computer
 - Copy the contents of your package to the new directory

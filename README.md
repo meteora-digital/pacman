@@ -1,18 +1,20 @@
-# Pacman Skeleton
+# Built with
 
-<img src="https://img.shields.io/badge/made_with-QUICKSILVER">
-<img src="https://img.shields.io/badge/made_by-Toast NZ">
+<p align="center">
+  <img style="width:100%;height:auto; max-width:810px" src="http://pinc.nz/git/quicksilver/quicksilver.png">
+</p>
+
+# Pacman Skeleton
 
 - These are very basic instruction on how to set up your new package with npm.
 - For more detailed instructions view [How to publish npm packages](https://zellwk.com/blog/publish-to-npm/)
+- This project is just here to help with the development of packages, not for publishing packages
 
 # Before you publish your package
 
-Start by ensuring your package is working
-
-With the skeleton package you may run gulp as you please while writing / updating your function.
-
-In your project's app.js add something similar to the following.
+- Start by ensuring your package is working
+- With the skeleton package you may run gulp as you please while writing / updating your function.
+- In your project's app.js add something similar to the following.
 
 ```js
 import {pacman, ghost} from '../packages/pacman/';
@@ -32,6 +34,8 @@ Skeleton.ghost();
 
 #Once your package is working and ready to be published
 
+- Create a new directory somewhere on your computer
+- Copy the contents of your package to the new directory
 - Remove package.json & package-lock.json
 
 Initialise the package with npm.

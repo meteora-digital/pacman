@@ -4,7 +4,7 @@
   <img style="width:100%;height:auto; max-width:810px" src="http://pinc.nz/git/quicksilver/quicksilver.png">
 </p>
 
-# Pacman Skeleton
+# Package Development Environment
 
 - These are very basic instruction on how to set up your new package with npm.
 - For more detailed instructions view [How to publish npm packages](https://zellwk.com/blog/publish-to-npm/)

@@ -1,60 +1,72 @@
-//------------------------------------------------------------------
-// Theme Specific
-//------------------------------------------------------------------
+// Imports
 
-@import 'Base/Base';
+@import 'Base/Reset';
 
+@import 'Base/Colours';
+@import 'Base/Type';
+@import 'Base/Mixins';
+@import 'Base/Grid';
 
-//------------------------------------------------------------------
-// Third Party
-//------------------------------------------------------------------
+@import 'Base/Buttons';
+@import 'Base/Forms';
 
-@import 'External/TinySlider';
-// @import 'External/Tingle';
+@import 'Pages/Login';
 
-
-//------------------------------------------------------------------
-// Core
-//------------------------------------------------------------------
-
-@import './../../../quicksilver-styles/scss/quicksilver-styles.scss';
-
+// Includes
 
 //------------------------------------------------------------------
-// Users
+// Include Overrides
 //------------------------------------------------------------------
 
-@import 'Base/Emmanuel';
-// @import 'Base/JD';
+$globalWidth: 110rem;
+$globalWidthPX: 1100px;
+$globalWidthMax: 144rem;
+$globalWidthMaxPX: 1440px;
+$columnCount: 12;
+$gutterWidth: 2rem;
 
+// Include neccessary column numbers for project here - HINT: false = no classes;
+
+// $rowClasses: 2, 3, 4, 5, 6, 7; // e.g md-up-4
+// $columnClasses: 3, 4, 5, 6, 7, 8, 9, 10; // e.g md-4
+
+// Include neccessary breakpoints for project here;
+
+$breakpoint-map: (
+  'md': $md,
+  'xmd': $xmd,
+  'lg': $lg,
+);
 
 //------------------------------------------------------------------
-// Blocks -- Requirements: quicksilver-styles.scss
+// Components
 //------------------------------------------------------------------
 
-@import './../../../quickblocks/scss/*';
+@include TheGrid;
 
-@if (variable-exists(core)) {
-	@include AccordionBlock;
-	@include ColumnBlock;
-	@include DownloadBlock;
-	@include GalleryBlock;
-	@include HeroBlock;
-	@include ImageBlock;
-	@include LinkBlock;
-	@include NewsBlock;
-	@include PercentageBlock;
-	@include SliderBlock;
-	@include SplitBlock;
-	@include TabBlock;
-	@include TestimonialBlock;
-	@include VideoBlock;
+// Classes: Inject these includes with $breakpoint-map if needed
+
+@include TextAlignmentClasses();
+@include TableAlignmentClasses($breakpoint-map);
+
+//------------------------------------------------------------------
+
+@include ButtonStyles {
+	display: inline-block;
+	margin: 0 1rem 1rem 0;
+	padding: 1rem 2rem 1rem;
+	border-radius: 0;
+	cursor: pointer;
+	outline: none;
+	font-size: 2rem!important;
+	white-space: nowrap;
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration: none;
+	border-width: .2rem;
+	border-style: solid;
+	@include transition((color, border-color, background-color));
 }
 
-
-//------------------------------------------------------------------
-// Elements
-//------------------------------------------------------------------
-
-@import 'Elements/*';
-@import 'Pages/*';
+@include ButtonClasses;
+@include FormStyles;

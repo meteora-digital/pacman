@@ -27,7 +27,7 @@ $MetaTags('false')
 Page Title
 ----------------------------------------------------------------%>
 
-<title>{$Title} | {$SiteConfig.Title}</title>
+<title>pacman | playground</title>
 
 <%----------------------------------------------------------------
 Favicons Template

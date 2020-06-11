@@ -1,41 +1,72 @@
-<p align="center">
-  <img style="width:100%;height:auto; max-width:810px" src="http://pinc.nz/git/quicksilver/quicksilver.png">
-</p>
+# Pacman Skeleton
 
-<img src="https://img.shields.io/badge/made_with-%20%20%20%E2%98%95-green.svg">
-<img src="https://img.shields.io/badge/made_by-%F0%9F%92%A9%F0%9F%92%A9-dddddd.svg">
-<img src="https://img.shields.io/badge/made_for-%F0%9F%92%B5-e6acca.svg">
+<img src="https://img.shields.io/badge/made_with-QUICKSILVER">
+<img src="https://img.shields.io/badge/made_by-Toast NZ">
 
-## Requirements
+- These are very basic instruction on how to set up your new package with npm.
+- For more detailed instructions view [How to publish npm packages](https://zellwk.com/blog/publish-to-npm/)
 
-* SilverStripe >= 4.4.4
+# Before you publish your package
 
-## Installation
+Start by ensuring your package is working
 
-Friends don't let friends install from an archive. Use [Composer](https://getcomposer.org/).
+With the skeleton package you may run gulp as you please while writing / updating your function.
 
+In your project's app.js add something similar to the following.
+
+```js
+import {pacman, ghost} from '../packages/pacman/';
+
+pacman();
+ghost();
 ```
-composer create-project -s dev toastnz/quicksimple myNewProject
+
+Or 
+
+```js
+import * as Skeleton from '../packages/pacman/';
+
+Skeleton.pacman();
+Skeleton.ghost();
 ```
 
-## QuickStatic
+#Once your package is working and ready to be published
 
-`QuickStatic` is a namespace for static templates - it allows you to easily separate static SS files from functional pages and controllers.
+- Remove package.json & package-lock.json
 
-For static pagetypes, extend `StaticPage` and place your template in `themes/quicksilver/templates/QuickStatic/Layout`.
+Initialise the package with npm.
 
+```sh
+$ npm login
+$ cd package/directory
+$ npm init
+$ npm publish
+```
 
-## Todo
+Install the dev dependencies
 
-* More helper classes
-* Include QuickBlocks
+```sh
+$ npm i @babel/core @babel/preset-env gulp gulp-babel gulp-browserify gulp-concat gulp-plumber
+```
 
-## Contributing
+And then set the package.json "test" to "gulp"
 
-### Code guidelines
+```json
+"scripts": {
+  "test": "gulp"
+}
+```
 
-This project follows the standards defined in:
+Create a [git repo](https://github.com/new) for your package
 
-* [PSR-0](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md)
-* [PSR-1](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md)
-* [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)
+Install [np](https://www.npmjs.com/package/np) to help publish your packages
+
+```sh
+$ sudo npm install --global np
+```
+
+Once updates are made and pushed to the git repo, you can publish the package to npm using 
+
+```sh
+$ np
+```

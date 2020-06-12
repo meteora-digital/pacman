@@ -119,7 +119,7 @@ var markers = [{
     lng: 140.6138123
   }
 }];
-_packages_maps___WEBPACK_IMPORTED_MODULE_1__["default"].Load('AIzaSyCUL_YzUORnNHTrBCiDgx8XEn4bGxCX16g');
+_packages_maps___WEBPACK_IMPORTED_MODULE_1__["default"].Load('YOUR_API_KEY');
 _packages_maps___WEBPACK_IMPORTED_MODULE_1__["default"].Render(function () {
   var map = _packages_maps___WEBPACK_IMPORTED_MODULE_1__["default"].Controller(document.querySelector('.js-map'), {
     locations: markers,

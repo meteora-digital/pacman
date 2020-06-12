@@ -28,7 +28,7 @@ const markers = [
 	}
 ];
 
-GoogleMaps.Load('AIzaSyCUL_YzUORnNHTrBCiDgx8XEn4bGxCX16g');
+GoogleMaps.Load('YOUR_API_KEY');
 
 GoogleMaps.Render(() => {
 	const map = GoogleMaps.Controller(document.querySelector('.js-map'), {

@@ -209,6 +209,11 @@ hr {
     width: 100%;
     height: 100%; }
 
+.js-map {
+  position: relative;
+  width: 1600px;
+  height: 1000px; }
+
 .login {
   position: relative;
   height: 100vh;

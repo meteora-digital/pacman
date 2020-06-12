@@ -7,6 +7,10 @@
 
     $Layout
 
+    <div class="js-map">
+    	
+    </div>
+
     <% require javascript("themes/quicksilver/dist/scripts/main.js") %>
   </body>
 </html>

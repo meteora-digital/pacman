@@ -5,22 +5,38 @@ Stylesheets
 import './../scss/style.scss';
 
 // import {pacman, ghost} from '../packages/pacman/';
-
-import GoogleMaps from '../packages/maps/';
-
 // pacman();
 // ghost();
 
-const markers = [
+import GoogleMaps from '../packages/maps/';
+
+const markerTypes = {
+	pacman: 'themes/quicksilver/dist/images/generated/favicons/android-chrome-144x144.png',
+	black: {
+		fillColor: '#000000',
+	}
+}
+
+
+const locationArray = [
 	{
 		title: "marker 1",
+		icon: 'pacman',
 		position: {
-			lat: -41.1071487,
-            lng: 174.6138123,
+			lat: -36.6049796,
+            lng: 174.7828287,
 		},
 	},
 	{
 		title: "marker 2",
+		icon: 'black',
+		position: {
+			lat: -36.6055996,
+            lng: 174.7828287,
+		},
+	},
+	{
+		title: "marker 3",
 		position: {
 			lat: -34.1071487,
             lng: 140.6138123,
@@ -28,24 +44,33 @@ const markers = [
 	}
 ];
 
-GoogleMaps.Load('YOUR_API_KEY');
+locationArray.forEach((location) => {
+	if (location.icon) location.icon = markerTypes[location.icon];
+});
+
+GoogleMaps.Load('');
 
 GoogleMaps.Render(() => {
 	const map = GoogleMaps.Controller(document.querySelector('.js-map'), {
-		locations: markers,
-		markers: true,
+		locations: locationArray,
+		cluster: true,
 		icon: {
-            path: 'M11.672 15.901c-2.734 0-4.952-2.174-4.952-4.857 0-2.682 2.218-4.859 4.952-4.859 2.735 0 4.953 2.177 4.953 4.86 0 2.682-2.218 4.856-4.953 4.856m0-15.9C5.453 0 .411 4.944.411 11.043c0 8.873 11.261 23.73 11.261 23.73s11.26-14.857 11.26-23.73c0-6.1-5.04-11.044-11.26-11.044',
-            fillColor: '#ff3366',
-            fillOpacity: 1,
-            anchor: new GoogleMaps.Point(12,36),
-            strokeWeight: 0,
-            scale: 1,
+            fillColor: '#f39200',
         },
         map: {
         	zoom: 5,
         }
 	});
 
-	console.log(GoogleMaps);
+	map.infoTemplate((location) => {
+		return location.title;
+	});
+
+	setTimeout(() => {
+		map.filterMarkers([locationArray[2], locationArray[0]]);
+
+		setTimeout(() => {
+			map.showAllMarkers();
+		}, 5000);
+	}, 5000);
 });
